@@ -84,7 +84,11 @@ var ParticleManagerCanvasRenderer = function (renderer, emitterManager, interpol
             var x = -(frame.halfWidth);
             var y = -(frame.halfHeight);
 
-            particleMatrix.applyITRS(particle.x, particle.y, particle.rotation, particle.scaleX, particle.scaleY);
+            particleMatrix.applyITRS(0, 0, particle.rotation, particle.scaleX, particle.scaleY);
+
+            particleMatrix.e = particle.x;
+            particleMatrix.f = particle.y;
+            
             camMatrix.multiply(particleMatrix, calcMatrix);
 
             ctx.globalAlpha = alpha;
