@@ -105,8 +105,8 @@ var ParticleManagerWebGLRenderer = function (renderer, emitterManager, interpola
 
             particleMatrix.applyITRS(0, 0, particle.rotation, particle.scaleX, particle.scaleY);
 
-            particleMatrix.e = particle.x;
-            particleMatrix.f = particle.y;
+            particleMatrix.e = particle.x - scrollX;
+            particleMatrix.f = particle.y - scrollY;
 
             camMatrix.multiply(particleMatrix, calcMatrix);
 
